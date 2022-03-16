@@ -1,0 +1,57 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:@typescript-eslint/recommended"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true,
+      "tsx": true
+    },
+    "ecmaVersion": "latest",
+    "sourceType": "module"
+  },
+  "plugins": ["react", "@typescript-eslint", "import"],
+  "rules": {
+    "import/named": "off",
+    "import/export": "off",
+    "import/no-unresolved": "off",
+    "react/react-in-jsx-scope": "off",
+    "import/no-default-export": "error",
+    "import/order": [
+      "error",
+      {
+        "groups": [["builtin"], ["external"]],
+        "newlines-between": "always"
+      }
+    ],
+    "padding-line-between-statements": [
+      "error",
+      { "blankLine": "always", "prev": "*", "next": "return" },
+      { "blankLine": "always", "prev": "*", "next": "if" },
+      { "blankLine": "always", "prev": "*", "next": "switch" },
+      { "blankLine": "always", "prev": "*", "next": "for" }
+    ],
+    "@typescript-eslint/no-empty-function": "off",
+    "@typescript-eslint/no-explicit-any": "error",
+    "@typescript-eslint/explicit-module-boundary-types": "off"
+  },
+  "settings": {
+    "import/parsers": {
+      "@typescript-eslint/parser": [".ts", ".tsx"]
+    },
+    "import/resolver": {
+      "node": {
+        "paths": ["src"],
+        "moduleDirectory": ["node_modules", "src/"],
+        "extensions": [".ts", ".tsx"]
+      }
+    }
+  }
+}
