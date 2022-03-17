@@ -2,31 +2,35 @@ import { PaletteOptions } from '@mui/material';
 
 declare module '@mui/material/styles' {
   interface Theme {
-    palette: PaletteOptions | undefined;
+    palette: Required<PaletteOptions>;
     color: {
+      primary: string;
+      secondary: string;
       accent: string;
       text: {
-        dark: string;
-        light: string;
+        primary: string;
+        secondary: string;
       };
       background: string;
       border: {
-        dark: string;
-        light: string;
+        primary: string;
+        secondary: string;
       };
     };
   }
   interface ThemeOptions {
     color: {
+      primary: string;
+      secondary: string;
       accent: string;
       text: {
-        dark: string;
-        light: string;
+        primary: string;
+        secondary: string;
       };
       background: string;
       border: {
-        dark: string;
-        light: string;
+        primary: string;
+        secondary: string;
       };
     };
   }
