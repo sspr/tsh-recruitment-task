@@ -29,22 +29,27 @@ export const theme = createTheme({
       fontWeight: 600,
     },
   },
-  palette: {
-    primary: {
-      main: '#4460F7',
-      dark: '#2140E8',
-    },
-  },
   color: {
+    primary: '#4460F7',
+    secondary: '#2140E8',
     accent: '#F9A52B',
     text: {
-      dark: '#1A1B1D',
-      light: '#9194A5',
+      primary: '#1A1B1D',
+      secondary: '#9194A5',
     },
     background: '#F2F2F2',
     border: {
-      dark: '#B9BDCF',
-      light: '#E0E2EA',
+      primary: '#B9BDCF',
+      secondary: '#E0E2EA',
+    },
+  },
+  breakpoints: {
+    values: {
+      xs: 0,
+      sm: 910,
+      md: 985,
+      lg: 1272,
+      xl: 1536,
     },
   },
 });
