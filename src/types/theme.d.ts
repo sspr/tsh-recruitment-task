@@ -17,6 +17,9 @@ declare module '@mui/material/styles' {
         secondary: string;
       };
     };
+    dimensions: {
+      siteWidth: string;
+    };
   }
   interface ThemeOptions {
     color: {
@@ -32,6 +35,9 @@ declare module '@mui/material/styles' {
         primary: string;
         secondary: string;
       };
+    };
+    dimensions: {
+      siteWidth: number;
     };
   }
 }

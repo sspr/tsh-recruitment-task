@@ -8,13 +8,13 @@ export const styles = {
   headerToolbar: {
     boxSizing: 'border-box',
     width: {
-      sm: 1,
-      lg: 1224,
+      xs: 1,
+      lg: theme.dimensions.siteWidth,
     },
     mx: 'auto',
     mt: { xs: 6.5, sm: 6 },
     mb: { xs: 4, sm: 6 },
-    px: 3,
+    px: { xs: 3, lg: 0 },
     display: 'flex',
     flexWrap: 'wrap',
     justifyContent: 'space-between',

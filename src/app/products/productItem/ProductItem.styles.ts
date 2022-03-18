@@ -2,7 +2,10 @@ import { theme } from 'assets/styles/theme';
 
 export const styles = {
   itemWrapper: {
-    maxWidth: 288,
+    maxWidth: {
+      sm: 288,
+      xs: 1,
+    },
     height: 400,
     borderRadius: 2,
     display: 'flex',
