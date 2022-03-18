@@ -3,8 +3,7 @@ import { Link } from 'react-router-dom';
 
 import { styles } from './Header.styles';
 import { AppRoute } from 'routing/AppRoute.enum';
-import { SearchBar } from '../searchBar/SearchBar';
-import { CheckboxWithLabel } from '../checkboxWithLabel/CheckboxWithLabel';
+import { SearchBar, CheckboxWithLabel } from 'ui';
 
 export const Header = () => {
   return (

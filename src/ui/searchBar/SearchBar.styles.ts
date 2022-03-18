@@ -4,7 +4,7 @@ export const styles = {
   form: {
     boxSizing: 'border-box',
     height: 48,
-    width: { xs: '100%', sm: 392 },
+    width: { xs: 1, sm: 392 },
     border: `1px solid ${theme.color.border.secondary}`,
     borderRadius: 2,
     display: 'flex',

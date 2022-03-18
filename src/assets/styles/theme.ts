@@ -27,6 +27,22 @@ export const theme = createTheme({
       fontSize: 18,
       lineHeight: '16px',
       fontWeight: 600,
+      marginBottom: 8,
+    },
+  },
+  components: {
+    MuiButton: {
+      styleOverrides: {
+        root: {
+          paddingTop: '11px',
+          paddingBottom: '11px',
+          boxSizing: 'border-box',
+          fontSize: 14,
+          lineHeight: '16px',
+          fontWeight: 600,
+          textTransform: 'none',
+        },
+      },
     },
   },
   color: {
