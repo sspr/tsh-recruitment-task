@@ -22,6 +22,7 @@ export const theme = createTheme({
       fontSize: 24,
       lineHeight: '40px',
       fontWeight: 600,
+      marginBottom: 8,
     },
     h3: {
       fontSize: 18,
