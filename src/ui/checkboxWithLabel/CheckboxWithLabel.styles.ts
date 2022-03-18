@@ -11,6 +11,12 @@ export const styles = {
   checkbox: {
     '&.MuiCheckbox-root': { p: 0, pr: 1 },
   },
+  icon: {
+    width: 11.73,
+    '& path': {
+      fill: theme.palette.common.white,
+    },
+  },
 };
 
 export const CheckboxIcon = styled('div')({
@@ -31,7 +37,4 @@ export const CheckboxCheckedIcon = styled('div')({
   alignItems: 'center',
   justifyContent: 'center',
   color: theme.palette.common.white,
-  '& img': {
-    width: 12,
-  },
 });

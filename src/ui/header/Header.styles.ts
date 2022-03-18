@@ -3,16 +3,15 @@ import { theme } from 'assets/styles/theme';
 export const styles = {
   headerWrapper: {
     backgroundColor: theme.palette.common.white,
-    display: 'flex',
-    justifyContent: 'center',
     boxShadow: 'none',
   },
   headerToolbar: {
     boxSizing: 'border-box',
     width: {
-      sm: '100%',
+      sm: 1,
       lg: 1224,
     },
+    mx: 'auto',
     mt: { xs: 6.5, sm: 6 },
     mb: { xs: 4, sm: 6 },
     px: 3,
@@ -41,13 +40,11 @@ export const styles = {
     alignContent: 'center',
   },
   button: {
+    boxSizing: 'border-box',
     mb: { xs: 3.5, sm: 0 },
+    py: 1.25,
     px: 3,
-    py: 1.375,
     borderColor: theme.color.primary,
-    fontSize: 16,
-    lineHeight: 1,
     color: theme.color.primary,
-    textTransform: 'none',
   },
 };

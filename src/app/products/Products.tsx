@@ -1,17 +1,14 @@
-import { Typography } from '@mui/material';
-import React from 'react';
-import { Link } from 'react-router-dom';
+import { Box } from '@mui/material';
 
-import { AppRoute } from 'routing/AppRoute.enum';
+import { productItemsMock } from 'api/mock/productsMock';
+import { ProductItem } from './productItem/ProductItem';
 
 export const Products = () => {
   return (
     <>
-      <Typography variant="h2">Products page</Typography>
-      <Link to={AppRoute.Login}>
-        <Typography>Login</Typography>
-      </Link>
-      <Typography>Text</Typography>
+      <Box>
+        <ProductItem productDetails={productItemsMock[0]} />
+      </Box>
     </>
   );
 };

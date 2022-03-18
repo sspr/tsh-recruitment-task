@@ -1,11 +1,11 @@
-import { Checkbox, FormControlLabel } from '@mui/material';
+import { Checkbox, FormControlLabel, SvgIcon } from '@mui/material';
 
 import {
   styles,
   CheckboxIcon,
   CheckboxCheckedIcon,
 } from './CheckboxWithLabel.styles';
-import tick from 'assets/images/tick.svg';
+import { ReactComponent as Tick } from 'assets/images/tick.svg';
 import { CheckboxWithLabelProps } from './CheckboxWithLabel.types';
 
 export const CheckboxWithLabel = ({ text }: CheckboxWithLabelProps) => {
@@ -17,8 +17,10 @@ export const CheckboxWithLabel = ({ text }: CheckboxWithLabelProps) => {
           sx={styles.checkbox}
           icon={<CheckboxIcon />}
           checkedIcon={
-            <CheckboxCheckedIcon>
-              <img src={tick} alt="Checkbox checked icon" />
+            <CheckboxCheckedIcon data-testid="checked-checkbox">
+              <SvgIcon viewBox="0 0 18 14" sx={styles.icon}>
+                <Tick />
+              </SvgIcon>
             </CheckboxCheckedIcon>
           }
         />
