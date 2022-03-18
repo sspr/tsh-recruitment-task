@@ -59,12 +59,15 @@ export const theme = createTheme({
       secondary: '#E0E2EA',
     },
   },
+  dimensions: {
+    siteWidth: 1224,
+  },
   breakpoints: {
     values: {
       xs: 0,
-      sm: 910,
-      md: 985,
-      lg: 1272,
+      sm: 914,
+      md: 993,
+      lg: 1288,
       xl: 1536,
     },
   },
