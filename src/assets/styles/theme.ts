@@ -7,6 +7,7 @@ export const theme = createTheme({
       fontSize: 14,
       lineHeight: '16px',
       fontWeight: 600,
+      color: '#9194A5',
     },
     body2: {
       fontSize: 18,
