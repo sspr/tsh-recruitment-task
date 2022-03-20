@@ -6,7 +6,7 @@ import { ProductsProps } from './Products.types';
 import { ReactComponent as BlankSheet } from 'assets/images/blankSheet.svg';
 import { styles } from './Products.styles';
 
-export const Products = ({ data, error, isLoading }: ProductsProps) => {
+export const Products = ({ data, isError, isLoading }: ProductsProps) => {
   if (isLoading) {
     return (
       <MessageCard>
@@ -15,25 +15,27 @@ export const Products = ({ data, error, isLoading }: ProductsProps) => {
     );
   }
 
-  if (!!error || !data) {
-    if (String(error).includes('404')) {
-      return (
-        <MessageCard>
-          <SvgIcon viewBox="0 0 38 48" sx={styles.blankSheetIcon}>
-            <BlankSheet />
-          </SvgIcon>
-          <Typography variant="h3">Ooops… It’s empty here</Typography>
-          <Typography variant="body1">
-            There are no products on the list
-          </Typography>
-        </MessageCard>
-      );
-    }
-
+  if (isError || !data) {
     return (
       <MessageCard>
         <Typography variant="h3">Oooops... Something went wrong</Typography>
-        <Typography variant="body1">Please try agin later</Typography>
+        <Typography variant="body1" sx={styles.message}>
+          Please try agin later
+        </Typography>
+      </MessageCard>
+    );
+  }
+
+  if (data.meta.totalItems === 0) {
+    return (
+      <MessageCard>
+        <SvgIcon viewBox="0 0 38 48" sx={styles.blankSheetIcon}>
+          <BlankSheet />
+        </SvgIcon>
+        <Typography variant="h3">Ooops… It’s empty here</Typography>
+        <Typography variant="body1" sx={styles.message}>
+          There are no products on the list
+        </Typography>
       </MessageCard>
     );
   }

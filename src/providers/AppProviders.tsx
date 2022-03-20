@@ -6,6 +6,7 @@ import { QueryClient, QueryClientProvider } from 'react-query';
 import { theme } from 'assets/styles/theme';
 import { globalStyles } from 'assets/styles/globalStyles';
 import { AppProvidersProps } from './AppProviders.types';
+import { ProductsContextController } from 'context/products/productsContextController/ProductsContextController';
 
 export const AppProviders = ({ children }: AppProvidersProps) => {
   const queryClient = new QueryClient();
@@ -14,7 +15,9 @@ export const AppProviders = ({ children }: AppProvidersProps) => {
     <ThemeProvider theme={theme}>
       <QueryClientProvider client={queryClient}>
         <GlobalStyles styles={globalStyles} />
-        <Router>{children}</Router>
+        <Router>
+          <ProductsContextController>{children}</ProductsContextController>
+        </Router>
       </QueryClientProvider>
     </ThemeProvider>
   );
