@@ -1,4 +1,4 @@
-import { ProductsParams } from '../products.types';
+import { ProductsParams } from 'api/types';
 
 export const defaultProductParams: ProductsParams = {
   limit: 8,

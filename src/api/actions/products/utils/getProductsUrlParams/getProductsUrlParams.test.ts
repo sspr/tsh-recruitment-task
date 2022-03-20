@@ -1,8 +1,8 @@
-import { ProductsParams } from '../products.types';
+import { ProductsParams } from '../../products.types';
 import { getProductsUrlParams } from './getProductsUrlParams';
 
 describe('getProductsUrlParams function', () => {
-  it('search params to query string correctly', () => {
+  it('converts search params to query string correctly', () => {
     const params: ProductsParams = {
       limit: 12,
       page: 1,
