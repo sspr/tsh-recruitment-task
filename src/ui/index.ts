@@ -5,3 +5,4 @@ export * from './chip/Chip';
 export * from './siteContentWrapper/SiteContentWrapper';
 export * from './messageCard/MessageCard';
 export * from './spinner/Spinner';
+export * from './pagination/Pagination';

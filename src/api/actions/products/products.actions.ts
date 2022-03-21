@@ -1,6 +1,8 @@
 import { Action } from '../../types';
+import { ProductsParams } from './products.types';
+import { getProductsUrl } from './utils/getProductsUrl/getProductsUrl';
 
-export const createGetProductsAction = (queryString: string): Action => ({
+export const createGetProductsAction = (params: ProductsParams): Action => ({
   method: 'GET',
-  url: `/products${queryString}`,
+  url: getProductsUrl(params),
 });

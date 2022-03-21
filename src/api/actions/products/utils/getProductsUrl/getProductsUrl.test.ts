@@ -1,7 +1,7 @@
 import { ProductsParams } from '../../products.types';
-import { getProductsUrlParams } from './getProductsUrlParams';
+import { getProductsUrl } from './getProductsUrl';
 
-describe('getProductsUrlParams function', () => {
+describe('getProductsUrl function', () => {
   it('converts search params to query string correctly', () => {
     const params: ProductsParams = {
       limit: 12,
@@ -11,10 +11,10 @@ describe('getProductsUrlParams function', () => {
       active: true,
     };
 
-    const queryString = getProductsUrlParams(params);
+    const queryString = getProductsUrl(params);
 
     expect(queryString).toStrictEqual(
-      '?limit=12&page=1&search=test&active=true'
+      '/products?limit=12&page=1&search=test&active=true'
     );
   });
 });

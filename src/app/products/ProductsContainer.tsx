@@ -5,10 +5,10 @@ import { Products } from './Products';
 import { useProductsParams } from 'hooks/useProductsParams/useProductsParams';
 
 export const ProductsContainer = () => {
-  const { searchQuery } = useProductsParams();
+  const { productsParams } = useProductsParams();
 
   const { data, isLoading, isError } = useQuery<ProductsResponse>(
-    createGetProductsAction(searchQuery)
+    createGetProductsAction(productsParams)
   );
 
   return <Products data={data} isError={isError} isLoading={isLoading} />;

@@ -1,6 +1,6 @@
 import { ProductsParams } from '../../products.types';
 
-export const getProductsUrlParams = (params: ProductsParams): string => {
+export const getProductsUrl = (params: ProductsParams): string => {
   const validatedParams = Object.fromEntries(
     Object.entries(params)
       .filter(([, value]) => value !== undefined)
@@ -8,5 +8,5 @@ export const getProductsUrlParams = (params: ProductsParams): string => {
   );
   const searchParams = new URLSearchParams(validatedParams);
 
-  return `?${searchParams.toString()}`;
+  return `/products?${searchParams.toString()}`;
 };

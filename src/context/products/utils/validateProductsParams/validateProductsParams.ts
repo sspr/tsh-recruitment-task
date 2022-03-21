@@ -1,4 +1,4 @@
-import { ProductsParams } from '../../products.types';
+import { ProductsParams } from 'api/types';
 
 export const validateProductsParams = (
   params: Record<string, string>

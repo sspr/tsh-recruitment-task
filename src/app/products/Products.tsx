@@ -1,12 +1,15 @@
 import { Grid, SvgIcon, Typography } from '@mui/material';
 
-import { MessageCard, SiteContentWrapper, Spinner } from 'ui';
+import { MessageCard, Pagination, SiteContentWrapper, Spinner } from 'ui';
 import { ProductItem } from './productItem/ProductItem';
 import { ProductsProps } from './Products.types';
 import { ReactComponent as BlankSheet } from 'assets/images/blankSheet.svg';
 import { styles } from './Products.styles';
+import { useProductsParams } from 'hooks/useProductsParams/useProductsParams';
 
 export const Products = ({ data, isError, isLoading }: ProductsProps) => {
+  const { setProductsParams } = useProductsParams();
+
   if (isLoading) {
     return (
       <MessageCard>
@@ -41,14 +44,23 @@ export const Products = ({ data, isError, isLoading }: ProductsProps) => {
   }
 
   return (
-    <SiteContentWrapper>
-      <Grid container rowSpacing={{ xs: 3, sm: 4 }} columnSpacing={3}>
-        {data.items.map((item) => (
-          <Grid columnSpacing={0} item xs={12} sm={3} key={item.name}>
-            <ProductItem productDetails={item} />
-          </Grid>
-        ))}
-      </Grid>
-    </SiteContentWrapper>
+    <>
+      <SiteContentWrapper>
+        <Grid container rowSpacing={{ xs: 3, sm: 4 }} columnSpacing={3}>
+          {data.items.map((item) => (
+            <Grid columnSpacing={0} item xs={12} sm={3} key={item.name}>
+              <ProductItem productDetails={item} />
+            </Grid>
+          ))}
+        </Grid>
+      </SiteContentWrapper>
+      <Pagination
+        currentPage={data.meta.currentPage}
+        onPageItemClick={(pageNumber: number) => {
+          setProductsParams({ page: pageNumber });
+        }}
+        pageCount={data.meta.totalPages}
+      />
+    </>
   );
 };

@@ -5,8 +5,7 @@ import { ProductsParams } from 'api/types';
 import { ProductsContext } from '../productsContext/ProductsContext';
 import { ProductsContextControllerProps } from './ProductsContextController.types';
 import { defaultProductParams } from '../defaultProductsParams';
-import { getProductsUrlParams } from 'api/actions/products/utils/getProductsUrlParams/getProductsUrlParams';
-import { validateProductsParams } from 'api/actions/products/utils/validateProductsParams/validateProductsParams';
+import { validateProductsParams } from '../utils/validateProductsParams/validateProductsParams';
 
 export const ProductsContextController = ({
   children,
@@ -24,8 +23,16 @@ export const ProductsContextController = ({
 
   useEffect(() => {
     if (location.pathname === '/') {
+      const searchParams = new URLSearchParams(
+        Object.fromEntries(
+          Object.entries(productsParams)
+            .filter(([, value]) => value !== undefined)
+            .map(([key, value]) => [key, String(value)])
+        )
+      );
+
       history.replace({
-        search: getProductsUrlParams(productsParams),
+        search: searchParams.toString(),
       });
     }
   }, [productsParams, location.pathname]);
@@ -40,7 +47,7 @@ export const ProductsContextController = ({
   return (
     <ProductsContext.Provider
       value={{
-        searchQuery: getProductsUrlParams(productsParams),
+        productsParams,
         setProductsParams: (params: Partial<ProductsParams>) => {
           setProductsParams((prevState) => ({ ...prevState, ...params }));
         },
