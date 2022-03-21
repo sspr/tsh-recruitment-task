@@ -53,9 +53,14 @@ export const styles = {
     width: 1,
     textTransform: 'none',
     boxShadow: 'none',
+    backgroundColor: theme.color.primary,
     '&.Mui-disabled': {
       color: theme.palette.common.white,
       backgroundColor: theme.color.text.secondary,
+    },
+    '&:hover': {
+      boxShadow: 'none',
+      backgroundColor: theme.color.secondary,
     },
   },
 };

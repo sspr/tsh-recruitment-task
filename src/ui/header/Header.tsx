@@ -52,35 +52,29 @@ export const Header = ({ onFilterChange, productsParams }: HeaderProps) => {
           />
           <Box sx={styles.checkboxes}>
             <CheckboxWithLabel
-              checkboxProps={{
-                onChange: () => {
-                  onFilterChange({
-                    active: checkboxActive ? undefined : true,
-                    search: searchBarValue,
-                    page: 1,
-                  });
-                  setCheckboxActive((prevState) =>
-                    prevState ? undefined : true
-                  );
-                },
-                checked: !!checkboxActive,
+              onChange={() => {
+                onFilterChange({
+                  active: checkboxActive ? undefined : true,
+                  search: searchBarValue,
+                  page: 1,
+                });
+                setCheckboxActive((prevState) =>
+                  prevState ? undefined : true
+                );
               }}
+              checked={!!checkboxActive}
               text="Active"
             />
             <CheckboxWithLabel
-              checkboxProps={{
-                onChange: () => {
-                  onFilterChange({
-                    promo: checkboxPromo ? undefined : true,
-                    search: searchBarValue,
-                    page: 1,
-                  });
-                  setCheckboxPromo((prevState) =>
-                    prevState ? undefined : true
-                  );
-                },
-                checked: !!checkboxPromo,
+              onChange={() => {
+                onFilterChange({
+                  promo: checkboxPromo ? undefined : true,
+                  search: searchBarValue,
+                  page: 1,
+                });
+                setCheckboxPromo((prevState) => (prevState ? undefined : true));
               }}
+              checked={!!checkboxPromo}
               text="Promo"
             />
           </Box>
