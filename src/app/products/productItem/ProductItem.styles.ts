@@ -20,6 +20,9 @@ export const styles = {
     flexDirection: 'column',
     justifyContent: 'space-between',
   },
+  mediaCardWrapper: {
+    height: 170,
+  },
   mediaUnavailable: {
     filter: 'grayscale(1)',
   },

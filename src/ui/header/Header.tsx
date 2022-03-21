@@ -25,6 +25,10 @@ export const Header = ({ onFilterChange, productsParams }: HeaderProps) => {
     setCheckboxPromo(productsParams?.promo);
   }, [location.search]);
 
+  const notSubmittedSearchInputParam = {
+    search: searchBarValue !== '' ? searchBarValue : undefined,
+  };
+
   return (
     <AppBar position="static" sx={styles.headerWrapper}>
       <Toolbar variant="dense" sx={styles.headerToolbar}>
@@ -40,7 +44,7 @@ export const Header = ({ onFilterChange, productsParams }: HeaderProps) => {
                 searchBarValue !== productsParams.search &&
                 !(searchBarValue === '' && productsParams.search === undefined)
               ) {
-                onFilterChange({ search: searchBarValue, page: 1 });
+                onFilterChange({ search: searchBarValue });
               }
             }}
             inputProps={{
@@ -55,8 +59,7 @@ export const Header = ({ onFilterChange, productsParams }: HeaderProps) => {
               onChange={() => {
                 onFilterChange({
                   active: checkboxActive ? undefined : true,
-                  search: searchBarValue,
-                  page: 1,
+                  ...notSubmittedSearchInputParam,
                 });
                 setCheckboxActive((prevState) =>
                   prevState ? undefined : true
@@ -69,8 +72,7 @@ export const Header = ({ onFilterChange, productsParams }: HeaderProps) => {
               onChange={() => {
                 onFilterChange({
                   promo: checkboxPromo ? undefined : true,
-                  search: searchBarValue,
-                  page: 1,
+                  ...notSubmittedSearchInputParam,
                 });
                 setCheckboxPromo((prevState) => (prevState ? undefined : true));
               }}

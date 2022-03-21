@@ -4,8 +4,12 @@ import { useHistory, useLocation } from 'react-router-dom';
 import { ProductsParams } from 'api/types';
 import { ProductsContext } from '../productsContext/ProductsContext';
 import { ProductsContextControllerProps } from './ProductsContextController.types';
-import { defaultProductParams } from '../defaultProductsParams';
+import {
+  defaultProductParams,
+  mobileDefaultProductParams,
+} from '../defaultProductsParams';
 import { validateProductsParams } from '../utils/validateProductsParams/validateProductsParams';
+import { useIsScreenMobile } from 'hooks';
 
 export const ProductsContextController = ({
   children,
@@ -16,10 +20,14 @@ export const ProductsContextController = ({
   const urlParams = new URLSearchParams(location.search);
   const urlParamsObject = validateProductsParams(Object.fromEntries(urlParams));
 
-  const [productsParams, setProductsParams] = useState<ProductsParams>({
-    ...defaultProductParams,
-    ...urlParamsObject,
-  });
+  const isScreenMobile = useIsScreenMobile();
+
+  const initialParams = isScreenMobile
+    ? { ...mobileDefaultProductParams, ...urlParamsObject }
+    : { ...defaultProductParams, ...urlParamsObject };
+
+  const [productsParams, setProductsParams] =
+    useState<ProductsParams>(initialParams);
 
   useEffect(() => {
     if (location.pathname === '/') {
@@ -38,10 +46,7 @@ export const ProductsContextController = ({
   }, [productsParams, location.pathname]);
 
   useEffect(() => {
-    setProductsParams({
-      ...defaultProductParams,
-      ...urlParamsObject,
-    });
+    setProductsParams(initialParams);
   }, [location.search]);
 
   return (
