@@ -1,12 +1,18 @@
-import React from 'react';
-
+import { useProductsParams } from 'hooks';
 import { AppRoutes } from 'routing/AppRoutes';
 import { Header } from 'ui';
 
 export const App = () => {
+  const { setProductsParams, productsParams } = useProductsParams();
+
   return (
     <>
-      <Header />
+      <Header
+        productsParams={productsParams}
+        onFilterChange={(params) => {
+          setProductsParams(params);
+        }}
+      />
       <AppRoutes />
     </>
   );

@@ -8,12 +8,16 @@ import {
 import { ReactComponent as Tick } from 'assets/images/tick.svg';
 import { CheckboxWithLabelProps } from './CheckboxWithLabel.types';
 
-export const CheckboxWithLabel = ({ text }: CheckboxWithLabelProps) => {
+export const CheckboxWithLabel = ({
+  text,
+  checkboxProps,
+}: CheckboxWithLabelProps) => {
   return (
     <FormControlLabel
       sx={styles.label}
       control={
         <Checkbox
+          {...checkboxProps}
           sx={styles.checkbox}
           icon={<CheckboxIcon />}
           checkedIcon={

@@ -1,14 +1,21 @@
 import { Grid, SvgIcon, Typography } from '@mui/material';
+import { useEffect } from 'react';
 
 import { MessageCard, Pagination, SiteContentWrapper, Spinner } from 'ui';
 import { ProductItem } from './productItem/ProductItem';
 import { ProductsProps } from './Products.types';
 import { ReactComponent as BlankSheet } from 'assets/images/blankSheet.svg';
 import { styles } from './Products.styles';
-import { useProductsParams } from 'hooks/useProductsParams/useProductsParams';
+import { useProductsParams } from 'hooks';
 
 export const Products = ({ data, isError, isLoading }: ProductsProps) => {
   const { setProductsParams } = useProductsParams();
+
+  useEffect(() => {
+    if (data && data.items.length === 0 && data.meta.totalItems !== 0) {
+      setProductsParams({ page: 1 });
+    }
+  }, [data?.items]);
 
   if (isLoading) {
     return (
