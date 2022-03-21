@@ -53,7 +53,12 @@ export const Products = ({ data, isError, isLoading }: ProductsProps) => {
   return (
     <>
       <SiteContentWrapper>
-        <Grid container rowSpacing={{ xs: 3, sm: 4 }} columnSpacing={3}>
+        <Grid
+          container
+          rowSpacing={{ xs: 3, sm: 4 }}
+          columnSpacing={3}
+          component="main"
+        >
           {data.items.map((item) => (
             <Grid columnSpacing={0} item xs={12} sm={3} key={item.name}>
               <ProductItem productDetails={item} />
