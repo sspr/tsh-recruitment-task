@@ -5,8 +5,8 @@ export const styles = {
     display: 'flex',
     justifyContent: 'center',
     flexGrow: 1,
-    p: 3,
-    pt: { xs: 3, sm: 7 },
+    m: 3,
+    mt: { xs: 3, sm: 7 },
   },
   container: {
     width: {

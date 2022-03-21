@@ -32,6 +32,7 @@ export function useQuery<
     {
       retry: false,
       refetchOnWindowFocus: false,
+      keepPreviousData: true,
       ...(options ?? {}),
     }
   );

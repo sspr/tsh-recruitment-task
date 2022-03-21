@@ -7,6 +7,7 @@ export const theme = createTheme({
       fontSize: 14,
       lineHeight: '16px',
       fontWeight: 600,
+      display: 'inline',
     },
     body2: {
       fontSize: 18,
