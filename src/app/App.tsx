@@ -10,7 +10,7 @@ export const App = () => {
       <Header
         productsParams={productsParams}
         onFilterChange={(params) => {
-          setProductsParams(params);
+          setProductsParams({ ...params, page: 1 });
         }}
       />
       <AppRoutes />

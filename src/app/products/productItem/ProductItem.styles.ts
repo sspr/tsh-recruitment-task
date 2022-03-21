@@ -20,6 +20,9 @@ export const styles = {
     flexDirection: 'column',
     justifyContent: 'space-between',
   },
+  mediaCardWrapper: {
+    height: 170,
+  },
   mediaUnavailable: {
     filter: 'grayscale(1)',
   },
@@ -53,9 +56,14 @@ export const styles = {
     width: 1,
     textTransform: 'none',
     boxShadow: 'none',
+    backgroundColor: theme.color.primary,
     '&.Mui-disabled': {
       color: theme.palette.common.white,
       backgroundColor: theme.color.text.secondary,
+    },
+    '&:hover': {
+      boxShadow: 'none',
+      backgroundColor: theme.color.secondary,
     },
   },
 };

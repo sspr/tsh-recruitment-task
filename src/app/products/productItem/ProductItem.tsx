@@ -24,13 +24,15 @@ export const ProductItem = ({ productDetails }: ProductItemProps) => {
   return (
     <>
       <Card sx={styles.itemWrapper}>
-        <CardMedia
-          component="img"
-          height="170"
-          image={productDetails.image}
-          alt={productDetails.name}
-          sx={!productDetails.active ? styles.mediaUnavailable : undefined}
-        />
+        <Box sx={styles.mediaCardWrapper}>
+          <CardMedia
+            component="img"
+            height="170"
+            image={productDetails.image}
+            alt={productDetails.name}
+            sx={!productDetails.active ? styles.mediaUnavailable : undefined}
+          />
+        </Box>
         {productDetails.promo && productDetails.active ? (
           <Chip text="Promo" />
         ) : null}

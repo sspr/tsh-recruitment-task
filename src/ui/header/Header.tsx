@@ -25,6 +25,10 @@ export const Header = ({ onFilterChange, productsParams }: HeaderProps) => {
     setCheckboxPromo(productsParams?.promo);
   }, [location.search]);
 
+  const notSubmittedSearchInputParam = {
+    search: searchBarValue !== '' ? searchBarValue : undefined,
+  };
+
   return (
     <AppBar position="static" sx={styles.headerWrapper}>
       <Toolbar variant="dense" sx={styles.headerToolbar}>
@@ -40,7 +44,7 @@ export const Header = ({ onFilterChange, productsParams }: HeaderProps) => {
                 searchBarValue !== productsParams.search &&
                 !(searchBarValue === '' && productsParams.search === undefined)
               ) {
-                onFilterChange({ search: searchBarValue, page: 1 });
+                onFilterChange({ search: searchBarValue });
               }
             }}
             inputProps={{
@@ -52,35 +56,27 @@ export const Header = ({ onFilterChange, productsParams }: HeaderProps) => {
           />
           <Box sx={styles.checkboxes}>
             <CheckboxWithLabel
-              checkboxProps={{
-                onChange: () => {
-                  onFilterChange({
-                    active: checkboxActive ? undefined : true,
-                    search: searchBarValue,
-                    page: 1,
-                  });
-                  setCheckboxActive((prevState) =>
-                    prevState ? undefined : true
-                  );
-                },
-                checked: !!checkboxActive,
+              onChange={() => {
+                onFilterChange({
+                  active: checkboxActive ? undefined : true,
+                  ...notSubmittedSearchInputParam,
+                });
+                setCheckboxActive((prevState) =>
+                  prevState ? undefined : true
+                );
               }}
+              checked={!!checkboxActive}
               text="Active"
             />
             <CheckboxWithLabel
-              checkboxProps={{
-                onChange: () => {
-                  onFilterChange({
-                    promo: checkboxPromo ? undefined : true,
-                    search: searchBarValue,
-                    page: 1,
-                  });
-                  setCheckboxPromo((prevState) =>
-                    prevState ? undefined : true
-                  );
-                },
-                checked: !!checkboxPromo,
+              onChange={() => {
+                onFilterChange({
+                  promo: checkboxPromo ? undefined : true,
+                  ...notSubmittedSearchInputParam,
+                });
+                setCheckboxPromo((prevState) => (prevState ? undefined : true));
               }}
+              checked={!!checkboxPromo}
               text="Promo"
             />
           </Box>

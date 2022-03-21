@@ -46,5 +46,10 @@ export const styles = {
     px: 3,
     borderColor: theme.color.primary,
     color: theme.color.primary,
+    '&:hover': {
+      borderColor: theme.color.secondary,
+      color: theme.color.secondary,
+      backgroundColor: 'transparent',
+    },
   },
 };

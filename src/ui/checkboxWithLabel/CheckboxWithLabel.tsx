@@ -10,14 +10,16 @@ import { CheckboxWithLabelProps } from './CheckboxWithLabel.types';
 
 export const CheckboxWithLabel = ({
   text,
-  checkboxProps,
+  onChange,
+  checked,
 }: CheckboxWithLabelProps) => {
   return (
     <FormControlLabel
       sx={styles.label}
       control={
         <Checkbox
-          {...checkboxProps}
+          onChange={onChange}
+          checked={checked}
           sx={styles.checkbox}
           icon={<CheckboxIcon />}
           checkedIcon={
